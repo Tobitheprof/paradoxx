@@ -77,20 +77,21 @@
             </div>
     
             <div class="row">
-
+              {% for c in cards %}
               <!-- Card Start -->
               <div class="col-lg-4">
                 <div class="box">
-                  <h4>Heat and Properties of Matter</h4>
-                  <p>Paradoxx makes the most of your time by feeding you with awesome information that's sure to put you steps ahead of your peers😉</p>
+                  <h4>{{c.title}}</h4>
+                  <p>{{c.description|truncatechars:20|safe}}</p>
                   <button class="btn text-center mt-3 btn-custom mb-3" type="submit">
-                    Read More
+                    <a href="/detail/{{c.slug}}" class="nav-link">Read More</a> 
                   </button>
-                  <p><i class="bi bi-credit-card"> 30 Slides</i></p>
-                  <p><i class="bi bi-clock"> 10 Mins Read Time</i></p>
+                  <p><i class="bi bi-credit-card"> {{c.number_of_slides}} Slides</i></p>
+                  <p><i class="bi bi-clock"> {{c.read_time}} Mins Read Time</i></p>
                 </div>
               </div>
               <!-- card end -->
+              {% endfor %}
 
             </div>
           </div>

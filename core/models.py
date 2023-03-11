@@ -31,6 +31,8 @@ class FlashCard(models.Model):
 	author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
 	description = models.TextField(null=True)
 	category = models.CharField(max_length=400, choices=CATEGORIES, null=True )
+	number_of_slides = models.PositiveIntegerField(null=True)
+	read_time = models.PositiveIntegerField(null=True)
 	date_created = models.DateTimeField(null=True, auto_now_add=True)
 
 

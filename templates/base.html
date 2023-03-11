@@ -41,15 +41,23 @@
       
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-        <li><a class="nav-link scrollto active" href="#">Home</a></li>
-        <li><a class="nav-link scrollto" href="#about">About</a></li>
-        <li><a class="nav-link scrollto" href="#">Blog</a></li>
-        <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+        {% if user.is_authenticated %}
+        <li><a class="nav-link scrollto active" href="{% url 'home' %}">Home</a></li>
+        {% else %}
+        <li><a class="nav-link scrollto active" href="{% url 'index' %}">Home</a></li>
+        {% endif %}
+        <li><a class="nav-link scrollto" href="{% url 'index' %}">About</a></li>
+        <li><a class="nav-link scrollto" href="{% url 'index' %}">Blog</a></li>
+        <li><a class="nav-link scrollto" href="{% url 'index' %}">Contact</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
-      <a href="#" class="book-a-table-btn scrollto">Get Started</a>
+      {% if user.is_authenticated %}
+      <a href="{% url 'home' %}" class="book-a-table-btn scrollto">Dashboard</a>
+      {% else %}
+      <a href="{% url 'index' %}" class="book-a-table-btn scrollto">Home</a>
+      {% endif %}
 
     </div>
   </header><!-- End Header -->

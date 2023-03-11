@@ -11,9 +11,18 @@ from django.contrib.auth.decorators import *
 def index(request):
 	return render(request, 'index.html')
 
+
+
+# ---------------------------------------------- AUth Views Start ------------------------------------------------------ #
+
 @login_required
 def home(request):
-	return render(request, 'home.html')
+    cards = FlashCard.objects.all()
+    context = {
+        'cards' : cards,
+        'title' : "Homepage",
+    }
+    return render(request, 'home.html', context)
 
 def det(request):
 	return render(request, 'det.html')
@@ -129,5 +138,64 @@ def register(request):
 def logout(request):
     auth.logout(request)
     return redirect('login')
+
+
+@login_required
+def science(request):
+	flashcard = FlashCard.objects.filter(category="Science")
+	context = {
+		'flashcard' : flashcard,
+		'title' : 'Science'
+	}
+	return render(request, 'category.html', context, {'title' : 'Flashcards on Science'})
+
+@login_required
+def art(request):
+	flashcard = FlashCard.objects.filter(category="Art")
+	context = {
+		'flashcard' : flashcard,
+		'title' : 'Art'
+	}
+	return render(request, 'category.html', context, {'title' : 'Flashcards on Art'})
+
+@login_required
+def history(request):
+	flashcard = FlashCard.objects.filter(category="History")
+	context = {
+		'flashcard' : flashcard,
+		'title' : 'History'
+	}
+	return render(request, 'category.html', context, {'title' : 'Flashcards on History'})
+
+@login_required
+def technology(request):
+	flashcard = FlashCard.objects.filter(category="Technology")
+	context = {
+		'flashcard' : flashcard,
+		'title' : 'Technology'
+	}
+	return render(request, 'category.html', context, {'title' : 'Technology'})
+
+@login_required
+def business(request):
+	flashcard = FlashCard.objects.filter(category="Business")
+	context = {
+		'flashcard' : flashcard,
+		'title' : 'Business'
+	}
+	return render(request, 'category.html', context, {'title' : 'Business'})
+
+@login_required
+def detail(request, slug):
+	flashcard = FlashCard.objects.get(slug=slug)
+
+	context = {
+		'flashcard' : flashcard,
+		'title' : flashcard
+	}
+
+	return render(request, 'det.html', context)
+
+# ----------------------------------- Auth Views End ------------------------------ #
 
 # Create your views here.

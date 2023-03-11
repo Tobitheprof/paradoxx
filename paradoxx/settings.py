@@ -119,6 +119,15 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR / 'staticfiles')
 STATICFILES_DIRS = [BASE_DIR / 'static']
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR / 'media')
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' #change smtp to console if you want to test locally
+EMAIL_HOST = 'smtp.gmail.com' #set to any email sercive you use
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587 #read email provider docs to know what port to use
+EMAIL_HOST_USER = '' #add your mail as the value in the string
+EMAIL_HOST_PASSWORD = '' #add mail password as password here
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

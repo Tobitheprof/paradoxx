@@ -11,7 +11,7 @@
           <h2>Flashcard title</h2>
           <ol>
             <li><a href="{% url 'home' %}">Home</a></li>
-            <li>Flashcard title</li>
+            <li>{{title}}</li>
           </ol>
         </div>
 
@@ -22,40 +22,28 @@
         <div class="container">
 
             <div class="section-title">
-              <h2><span>Flashcard Title</span></h2>
+              <h2><span>{{title}}</span></h2>
             </div>
     
             <div class="events-slider swiper">
               <div class="swiper-wrapper">
-    
+                
+                {% for w in flashcard.slide_set.all %}
                 <div class="swiper-slide">
                   <div class="row event-item justify-content-center align-items-center">
                     <div class="col-lg-6 pt-4 pt-lg-0 content">
-                      <h3>Birthday Parties</h3>
+                      <h3>{{w.title}}</h3>
                       <div class="price">
-                        <p><span>$189</span></p>
+                        {% comment %} <p><span>$189</span></p> {% endcomment %}
                       </div>
                       <p class="fst-italic">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua.
-                      </p>
-                      <ul>
-                        <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                        <li><i class="bi bi-check-circle"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                        <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                      </ul>
-                      <p>
-                        Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                        velit esse cillum dolore eu fugiat nulla pariatur
+                        {{w.description}}
                       </p>
                     </div>
                   </div>
                 </div><!-- End testimonial item -->
-    
-                
-    
-                
-    
+                {% endfor %}
+
               </div>
               <div class="swiper-pagination"></div>
             </div>
