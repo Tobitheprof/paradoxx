@@ -8,7 +8,7 @@
     <meta content="Paradoxx | the flashcard tool for learning that Gigachads use" name="description">
     <meta content="learning, fast, quick, easy, flashcards" name="keywords">
 
-    <title>Home | Paradoxx</title>
+    <title>Home | {{title}}</title>
      <!-- Vendor CSS Files -->
      <link href="{% static 'assets/vendor/animate.css/animate.min.css' %}" rel="stylesheet">
      <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
@@ -23,36 +23,36 @@
 <body>
    
     <!-- ======= Top Bar ======= -->
-    <section id="topbar" class="d-flex align-items-center fixed-top topbar-transparent">
-        <div class="container-fluid container-xl d-flex align-items-center justify-content-center justify-content-lg-start">
-        <i class="bi bi-phone d-flex align-items-center"><span>Built by the best ever code ninja there ever was; Tobi TheRevolutionary</span></i>
-        </div>
-    </section>
+  <section id="topbar" class="d-flex align-items-center fixed-top ">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-center justify-content-lg-start">
+      <i class="bi bi-phone d-flex align-items-center"><span>+1 5589 55488 55</span></i>
+      <i class="bi bi-clock ms-4 d-none d-lg-flex align-items-center"><span>Mon-Sat: 11:00 AM - 23:00 PM</span></i>
+    </div>
+  </section>
 
-    <!-- ======= Header ======= -->
-    <header id="header" class="fixed-top d-flex align-items-center header-transparent">
-        <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center ">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
-        <div class="logo me-auto">
-            <h1><a href="index.html">Paradoxx</a></h1>
-            <!-- Uncomment below if you prefer to use an image logo -->
-            <!-- <a href="index.html"><img src="{% static 'assets/img/logo.png' %}" alt="" class="img-fluid"></a>-->
-        </div>
+      <div class="logo me-auto">
+        <h1><a href="index.html">Paradoxx</a></h1>
+      </div>
 
-        <nav id="navbar" class="navbar order-last order-lg-0">
-            <ul>
-            <li><a class="nav-link scrollto active" href="#">Home</a></li>
-            <li><a class="nav-link scrollto" href="#about">About</a></li>
-            <li><a class="nav-link scrollto" href="#">Blog</a></li>
-            <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-            </ul>
-            <i class="bi bi-list mobile-nav-toggle"></i>
-        </nav><!-- .navbar -->
+      
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+        <li><a class="nav-link scrollto active" href="#">Home</a></li>
+        <li><a class="nav-link scrollto" href="#about">About</a></li>
+        <li><a class="nav-link scrollto" href="#">Blog</a></li>
+        <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
 
-        <a href="#" class="book-a-table-btn scrollto">Get Started</a>
+      <a href="#" class="book-a-table-btn scrollto">Get Started</a>
 
-        </div>
-    </header><!-- End Header -->
+    </div>
+  </header><!-- End Header -->
     {% block content %}
 
     {% endblock %}
