@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<main id="main">
+
+  <!-- ======= Breadcrumbs Section ======= -->
+  <section class="breadcrumbs">
+    <div class="container">
+
+      <div class="d-flex justify-content-between align-items-center">
+        <h2>{{title}}</h2>
+        <ol>
+          <li><a href="#">Home</a></li>
+          <li>{{title}}</li>
+        </ol>
+      </div>
+
+    </div>
+  </section><!-- End Breadcrumbs Section -->
+
+  <section class="inner-page">
+    <div class="container">
+    
+        <div class="section-title">
+          <h2>Flashcards on <span>{{title}}</span></h2>
+          <p></p>
+        </div>
+
+        <div class="row">
+          {% for c in flashcard %}
+          <!-- Card Start -->
+          <div class="col-lg-4">
+            <div class="box">
+              <h4>{{c.title}}</h4>
+              <p>{{c.description|truncatechars:20|safe}}</p>
+              <button class="btn text-center mt-3 btn-custom mb-3" type="submit">
+                <a href="/detail/{{c.slug}}" class="nav-link">Read More</a> 
+              </button>
+              <p><i class="bi bi-credit-card"> {{c.number_of_slides}} Slides</i></p>
+              <p><i class="bi bi-clock"> {{c.read_time}} Mins Read Time</i></p>
+            </div>
+          </div>
+          <!-- card end -->
+          {% endfor %}
+
+        </div>
+      </div>
+  </section>
+
+</main><!-- End #main -->
+{% endblock %}
