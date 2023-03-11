@@ -46,15 +46,7 @@
                             <input type="text" class="form-control" id="username" placeholder="Last Name" required disabled value="{{user.last_name}}">
                           </div>                        
                         </div>
-    
-                        <div class="col-12 mb-3">
-                          <label for="lastName" class="form-label">Occupation:</label>
-                          <div class="input-group has-validation">
-                            <span class="input-group-text"><i class="bi bi-briefcase"></i></span>
-                            <input type="text" class="form-control" id="username" placeholder="Occupation" required value="{{user_profile.occupation}}" name="occupation">
-                          </div>                        
-                        </div>
-            
+                     
                         <div class="col-12 mb-3">
                           <label for="username" class="form-label">Username:</label>
                           <div class="input-group has-validation">
@@ -63,21 +55,6 @@
                           </div>
                         </div>
     
-                        <div class="col-12 mb-3">
-                            <label for="username" class="form-label">Nationality:</label>
-                            <div class="input-group">
-                              <span class="input-group-text"><i class="bi bi-flag"></i></span>
-                              <input type="text" class="form-control" id="username" placeholder="Address" required name="nationality" value="{{user_profile.nationality}}">
-                            </div>
-                        </div>
-    
-                        <div class="col-12 mb-3">
-                          <label for="username" class="form-label">Address:</label>
-                          <div class="input-group">
-                            <span class="input-group-text"><i class="bi bi-house"></i></span>
-                            <input type="text" class="form-control" id="username" placeholder="Address" required name="address" value="{{user_profile.address}}">
-                          </div>
-                        </div>
     
                         <div class="col-12 mb-3">
                           <label for="username" class="form-label">Phone Number:</label>
@@ -88,8 +65,13 @@
                         </div>
     
                         <div class="col-12 mb-3">
-                          <label for="desc" class="form-label">About Me:</label>
-                          <textarea name="desc" id="desc" cols="30" rows="30" placeholder="Write Something About Yourself" class="form-control" required>{{user_profile.about_me}}</textarea>
+                          <label for="desc" class="form-label">How did you hear about us?</label>
+                          <textarea name="desc" id="desc" cols="30" rows="30" placeholder="How did you get to know us?" class="form-control" required>{{user_profile.about_me}}</textarea>
+                        </div>
+
+                        <div class="col-12 mb-3">
+                          <label for="desc" class="form-label">What will you use paradoxx for?</label>
+                          <textarea name="desc" id="desc" cols="30" rows="30" placeholder="What will you use this tool for?" class="form-control" required>{{user_profile.about_me}}</textarea>
                         </div>
                         
                         <button class="btn btn-secondary btn-custom me-2 normal-text" type="submit">Update Profile</button>

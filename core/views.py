@@ -11,14 +11,34 @@ from django.contrib.auth.decorators import *
 def index(request):
 	return render(request, 'index.html')
 
+@login_required
 def home(request):
 	return render(request, 'home.html')
 
 def det(request):
 	return render(request, 'det.html')
 
+@login_required
 def profile(request):
-    return render(request, 'profile.html')
+
+    user_profile = Profile.objects.get(user=request.user)
+    if request.method == "POST":
+            phone_number = request.POST['phone']
+            how_did_you_hear_about_us = request.POST['how']
+            what_will_you_use_paradox_for = request.POST['what']
+
+            
+            user_profile.phone_number = phone_number
+            user_profile.how_did_you_hear_about_us = how_did_you_hear_about_us
+            user_profile.what_will_you_use_paradox_for = what_will_you_use_paradox_for
+            user_profile.save()
+            return redirect("home")
+    context = {
+        'title' : 'Edit Profile',
+        'user_profile' : user_profile,
+    }
+
+    return render(request, 'profile.html', context)
 
 def login(request):
     user = request.user
@@ -103,5 +123,11 @@ def register(request):
 
     else:
         return render(request, 'register.html', context)
+    
+    
+@login_required
+def logout(request):
+    auth.logout(request)
+    return redirect('login')
 
 # Create your views here.
