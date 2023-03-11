@@ -107,9 +107,9 @@ def register(request):
                 }
                 message = get_template('mail.html').render(ctx)
                 msg = EmailMessage(
-                    'Welcome to ABUDevs',
+                    'Welcome to Paradoxx',
                     message,
-                    'The ABUDevs Team',
+                    'Paradoxx',
                     [email],
                 )
                 msg.content_subtype ="html"# Main content is now text/html
