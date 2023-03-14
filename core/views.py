@@ -5,6 +5,7 @@ from django.contrib.auth.models import User, auth
 from django.template.loader import render_to_string, get_template
 from django.core.mail import EmailMessage
 from django.contrib.auth.decorators import *
+from django.core.paginator import *
 
 
 
@@ -147,7 +148,20 @@ def science(request):
 		'flashcard' : flashcard,
 		'title' : 'Science'
 	}
-	return render(request, 'category.html', context, {'title' : 'Flashcards on Science'})
+    #Paginator Logic Start
+	page = request.GET.get('page', 1)
+
+	paginator = Paginator(flashcard, 2)
+
+	try:
+	    flashcards = paginator.page(page)
+    
+	except PageNotAnInteger
+
+	except EmptyPage:
+	    flashcards = paginator.page(paginator.num_pages)
+	     
+	return render(request, 'category.html', context)
 
 @login_required
 def art(request):
