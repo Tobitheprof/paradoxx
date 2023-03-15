@@ -143,61 +143,88 @@ def logout(request):
 
 @login_required
 def science(request):
-	flashcard = FlashCard.objects.filter(category="Science")
-	context = {
+    flashcard = FlashCard.objects.filter(category="Science")
+    page = request.GET.get('page', 1)
+    paginator = Paginator(flashcard, 5)
+    try:
+         flashcard = paginator.page(page)
+    except PageNotAnInteger:
+         flashcard = paginator.page(1)
+    except EmptyPage:
+         flashcard = paginator.page(paginator.num_pages)
+    context = {
 		'flashcard' : flashcard,
 		'title' : 'Science'
 	}
-    #Paginator Logic Start
-	page = request.GET.get('page', 1)
-
-	paginator = Paginator(flashcard, 2)
-
-	try:
-	    flashcards = paginator.page(page)
-    
-	except PageNotAnInteger
-
-	except EmptyPage:
-	    flashcards = paginator.page(paginator.num_pages)
-	     
-	return render(request, 'category.html', context)
+    return render(request, 'category.html', context)
 
 @login_required
 def art(request):
-	flashcard = FlashCard.objects.filter(category="Art")
-	context = {
+    flashcard = FlashCard.objects.filter(category="Art")
+    page = request.GET.get('page', 1)
+    paginator = Paginator(flashcard, 5)
+    try:
+         flashcard = paginator.page(page)
+    except PageNotAnInteger:
+         flashcard = paginator.page(1)
+    except EmptyPage:
+         flashcard = paginator.page(paginator.num_pages)
+    context = {
 		'flashcard' : flashcard,
 		'title' : 'Art'
 	}
-	return render(request, 'category.html', context, {'title' : 'Flashcards on Art'})
+    return render(request, 'category.html', context)
 
 @login_required
 def history(request):
-	flashcard = FlashCard.objects.filter(category="History")
-	context = {
+    flashcard = FlashCard.objects.filter(category="History")
+    page = request.GET.get('page', 1)
+    paginator = Paginator(flashcard, 5)
+    try:
+         flashcard = paginator.page(page)
+    except PageNotAnInteger:
+         flashcard = paginator.page(1)
+    except EmptyPage:
+         flashcard = paginator.page(paginator.num_pages)
+    context = {
 		'flashcard' : flashcard,
 		'title' : 'History'
 	}
-	return render(request, 'category.html', context, {'title' : 'Flashcards on History'})
+    return render(request, 'category.html', context)
 
 @login_required
 def technology(request):
-	flashcard = FlashCard.objects.filter(category="Technology")
-	context = {
+    flashcard = FlashCard.objects.filter(category="Technology")
+    page = request.GET.get('page', 1)
+    paginator = Paginator(flashcard, 5)
+    try:
+         flashcard = paginator.page(page)
+    except PageNotAnInteger:
+         flashcard = paginator.page(1)
+    except EmptyPage:
+         flashcard = paginator.page(paginator.num_pages)
+    context = {
 		'flashcard' : flashcard,
 		'title' : 'Technology'
 	}
-	return render(request, 'category.html', context, {'title' : 'Technology'})
+    return render(request, 'category.html', context)
 
 @login_required
 def business(request):
-	flashcard = FlashCard.objects.filter(category="Business")
-	context = {
+    flashcard = FlashCard.objects.filter(category="Business")
+    page = request.GET.get('page', 1)
+    paginator = Paginator(flashcard, 5)
+    try:
+         flashcard = paginator.page(page)
+    except PageNotAnInteger:
+         flashcard = paginator.page(1)
+    except EmptyPage:
+         flashcard = paginator.page(paginator.num_pages)
+    context = {
 		'flashcard' : flashcard,
 		'title' : 'Business'
 	}
-	return render(request, 'category.html', context, {'title' : 'Business'})
+    return render(request, 'category.html', context)
 
 @login_required
 def detail(request, slug):
