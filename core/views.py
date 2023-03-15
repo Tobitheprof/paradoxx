@@ -6,11 +6,26 @@ from django.template.loader import render_to_string, get_template
 from django.core.mail import EmailMessage
 from django.contrib.auth.decorators import *
 from django.core.paginator import *
+from django.db.models import Q
 
 
 
 def index(request):
 	return render(request, 'index.html')
+
+
+def search(request):
+    results = []
+
+    if request.method == "GET":
+        query = request.GET.get('search')
+
+        if query == "":
+            query = "None"
+        
+        results = FlashCard.objects.filter(Q(title__icontains=query))
+
+    return render(request, 'search.html', {'query':query, 'results' : results})
 
 
 

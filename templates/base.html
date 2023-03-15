@@ -22,7 +22,7 @@
 </head>
 <body>
    
-    <!-- ======= Top Bar ======= -->
+  <!-- ======= Top Bar ======= -->
   <section id="topbar" class="d-flex align-items-center fixed-top ">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-center justify-content-lg-start">
       <i class="bi bi-phone d-flex align-items-center"><span>+Made by Tobi TheRevolutionary</span></i>
@@ -42,28 +42,36 @@
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
         {% if user.is_authenticated %}
-        <li><a class="nav-link scrollto active" href="{% url 'home' %}">Home</a></li>
+        <li><a class="nav-link scrollto active" href="{% url 'home' %}">Dashboard</a></li>
+        <li><a class="nav-link scrollto" href="{% url 'logout' %}">Log Out</a></li>
         {% else %}
         <li><a class="nav-link scrollto active" href="{% url 'index' %}">Home</a></li>
         {% endif %}
         <li><a class="nav-link scrollto" href="{% url 'index' %}">About</a></li>
         {% comment %} <li><a class="nav-link scrollto" href="{% url 'index' %}">Blog</a></li> {% endcomment %}
         <li><a class="nav-link scrollto" href="{% url 'index' %}">Contact</a></li>
+        <form action="{% url 'search' %}" method="GET">
+          <div class="input-group ms-3 me-3">
+            <span class="input-group-text"><i class="bi bi-search"></i></span>
+            <input type="search" class="form-control" name="search" id="search">
+          </div>
+        </form>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
       {% if user.is_authenticated %}
-      <a href="{% url 'home' %}" class="book-a-table-btn scrollto">Dashboard</a>
+      <a href="{% url 'profile' %}" class="book-a-table-btn scrollto">Profile</a>
       {% else %}
-      <a href="{% url 'index' %}" class="book-a-table-btn scrollto">Home</a>
+      <a href="{% url 'register' %}" class="book-a-table-btn scrollto">Get Started</a>
       {% endif %}
-      <form action="#" method="get">
+
+      <!-- <form action="#" method="get">
         <div class="input-group mx-3">
           <span class="input-group-text"><i class="bi bi-search"></i></span>
           <input type="search" class="form-control">
         </div>
-      </form>
+      </form> -->
 
     </div>
   </header><!-- End Header -->

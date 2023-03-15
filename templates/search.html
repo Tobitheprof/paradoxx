@@ -20,19 +20,21 @@
 
   <section class="inner-page why-us">
     <div class="container">
-    
+    {% if query %}
         <div class="section-title">
-          <h2>Flashcards on <span>{{title}}</span></h2>
+          <h2>{% with results.count as total_results %}
+            Found <span>{{total_results}}</span> result {{total_results|pluralize}}
+            {% endwith %}</h2>
           <p></p>
         </div>
 
         <div class="row">
-          {% for c in flashcard %}
+          {% for c in results %}
           <!-- Card Start -->
           <div class="col-lg-4">
             <div class="box">
               <h4>{{c.title}}</h4>
-              <p>{{c.description|truncatechars:20|safe}}</p>
+              <p>{{c.description|safe}}</p>
               <button class="btn text-center mt-3 btn-custom mb-3" type="submit">
                 <a href="/detail/{{c.slug}}" class="nav-link">Read More</a> 
               </button>
@@ -41,7 +43,10 @@
             </div>
           </div>
           <!-- card end -->
+          {% empty %}
+          <h2>No results <span>found</span></h2>
           {% endfor %}
+    {% endif %}
 
         </div>
       </div>
