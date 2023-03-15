@@ -23,7 +23,7 @@ def search(request):
         if query == "":
             query = "None"
         
-        results = FlashCard.objects.filter(Q(title__icontains=query))
+        results = FlashCard.objects.filter(Q(title__icontains=query)| Q(description__icontains=query)) 
 
     return render(request, 'search.html', {'query':query, 'results' : results})
 
