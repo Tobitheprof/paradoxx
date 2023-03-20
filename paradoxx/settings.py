@@ -122,6 +122,8 @@ STATICFILES_DIRS = [BASE_DIR / 'static']
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR / 'media')
 
+LOGIN_URL = "/login"
+
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' #change smtp to console if you want to test locally
 EMAIL_HOST = 'smtp.gmail.com' #set to any email sercive you use
 EMAIL_USE_TLS = True

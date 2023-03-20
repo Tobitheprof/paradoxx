@@ -139,7 +139,7 @@ def register(request):
 
             #Create user model and redirect to edit-profile
             user_model = User.objects.get(username=username)
-            new_profile = Profile.objects.create(owner=user_model, user_id=user_model.id)
+            new_profile = Profile.objects.create(owner=user_model, id_user=user_model.id)
             new_profile.save()
             return redirect('edit-profile')#Rediects to specified page once condition is met
         else:
