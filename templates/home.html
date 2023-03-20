@@ -1,7 +1,7 @@
     {% extends 'base.html' %}
     {% load static %}
     {% block content %}
-    <!-- ======= Hero Section ======= -->
+    {% comment %} <!-- ======= Hero Section ======= -->
     <section id="hero">
         <div class="hero-container">
         <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
@@ -64,9 +64,24 @@
 
         </div>
         </div>
-    </section><!-- End Hero -->
+    </section><!-- End Hero --> {% endcomment %}
 
     <main id="main">
+
+        <!-- ======= Breadcrumbs Section ======= -->
+        <section class="breadcrumbs">
+          <div class="container">
+
+            <div class="d-flex justify-content-between align-items-center">
+              <h2>{{title}}</h2>
+              <ol>
+                <li><a href="#">Home</a></li>
+                <li>{{title}}</li>
+              </ol>
+            </div>
+
+          </div>
+        </section><!-- End Breadcrumbs Section -->
         <!-- ======= Why Us Section ======= -->
         <section id="why-us" class="why-us">
           <div class="container">
